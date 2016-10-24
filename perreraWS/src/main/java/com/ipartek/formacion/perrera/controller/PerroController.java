@@ -1,44 +1,30 @@
 package com.ipartek.formacion.perrera.controller;
 
 
+import java.util.ArrayList;
+
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import com.ipartek.formacion.perrera.dao.PerroDAOImpl;
+import com.ipartek.formacion.perrera.pojo.Perro;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-import java.util.ArrayList;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-
-import com.ipartek.formacion.perrera.dao.PerroDAOImpl;
-import com.ipartek.formacion.perrera.pojo.Perro;
-
-
-/**
- * El poryecto hace refencia al proyecto skalada
- *
- * @author Curso
- *
- */
 @Path("/perro")
 @Api(value = "/perro")
 public class PerroController {
-	
-	
+
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
