@@ -14,13 +14,13 @@
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		
+
 		<!-- filtro para habilitar Cross Origin en todas las Responses -->
 		<init-param>
 			<param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
 			<param-value>com.ipartek.formacion.perrera.filter.ResponseCorsFilter</param-value>
 		</init-param>
-		
+
 		<!-- Jersey busca nuestro controladores -->
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
@@ -30,16 +30,16 @@
                 com.ipartek.formacion.perrera.controller
              </param-value>
 		</init-param>
-		
+
 		<init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
 			<param-value>true</param-value>
 		</init-param>
-		
+
 		<load-on-startup>1</load-on-startup>
-		
+
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/service/*</url-pattern>
@@ -47,7 +47,19 @@
 
 
 	<!-- Documentacion de nuestra Api con Swagger -->
-
+	<servlet>
+		<servlet-name>Jersey2Config</servlet-name>
+		<servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
+		<init-param>
+			<param-name>api.version</param-name>
+			<param-value>1.0.0</param-value>
+		</init-param>
+		<init-param>
+			<param-name>swagger.api.basepath</param-name>
+			<param-value>/perreraWS/service</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
 
 
 </web-app> 
