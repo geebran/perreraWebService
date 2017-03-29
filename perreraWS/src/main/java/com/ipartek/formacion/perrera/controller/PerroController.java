@@ -50,11 +50,13 @@ public class PerroController {
 
 		Response response = Response.noContent().build();
 
+		ArrayList<Perro> perros = new ArrayList<Perro>();
+
 		try {
 
-			logUser(request);
+			// logUser(request);
 			PerroDAOImpl dao = PerroDAOImpl.getInstance();
-			ArrayList<Perro> perros = (ArrayList<Perro>) dao.getAll(orderBy, campo);
+			perros = (ArrayList<Perro>) dao.getAll(orderBy, campo);
 
 			if (perros != null && perros.size() > 0) {
 				response = Response.ok().entity(perros).build();
